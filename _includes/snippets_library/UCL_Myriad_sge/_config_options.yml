@@ -7,7 +7,8 @@ local:
 remote:
   name: "Myriad"
   login: "myriad.rc.ucl.ac.uk"
-  node: node-d00a-001
+  host: "login12.myriad.ucl.ac.uk"
+  node: node-d00a-005
   location: "University College London"
   homedir: "/home"
   user: "yourUsername"
