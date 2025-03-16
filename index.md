@@ -1,9 +1,5 @@
+site: sandpaper::sandpaper_site
 ---
-layout: lesson
-root: .
----
-
-{% include gh_variables.html %}
 
 This workshop is an introduction to using high-performance computing systems
 effectively. We can't cover every case or give an exhaustive course on parallel
@@ -44,4 +40,4 @@ welcome.
 > [Instructor notes](guide/).
 {: .callout}
 
-{% include links.md %}
+
