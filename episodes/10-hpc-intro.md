@@ -19,6 +19,9 @@ exercises: 5
 ::::::::::::::::::::::::::::
 
 
+{{#yaml}}{{#license}}
+<p>Materials licensed under <a href="{{#site}}{{root}}{{/site}}LICENSE.html">{{license}}</a> by the authors</p>
+{{/license}}{{/yaml}}
 
 
 Frequently, research problems that use computing can outgrow the capabilities
