@@ -12,29 +12,19 @@ recommend that these tools are installed (or at least downloaded) beforehand.
 
 
 
-
-## Data Sets
-
-<!--
-FIXME: place any data you want learners to use in `episodes/data` and then use
-       a relative link ( [data zip file](data/lesson-data.zip) ) to provide a
-       link to it, replacing the example.com link.
--->
-Download the [data zip file](https://example.com/FIXME) and unzip it to your Desktop
-
 ## Software Setup
 
 ::::::::::::::::::::::::::::::::::::::: discussion
 
 ### Details
 
-> ## Bash and SSH
->
-> This lesson requires a terminal application (`bash`, `zsh`, or others) with
-> the ability to securely connect to a remote machine (`ssh`).
+#### Bash and SSH
+
+This lesson requires a terminal application (`bash`, `zsh`, or others) with
+the ability to securely connect to a remote machine (`ssh`).
 
 
-## Where to Type Commands: How to Open a New Shell
+#### Where to Type Commands: How to Open a New Shell
 
 The shell is a program that enables us to send commands to the computer and
 receive output. It is also referred to as the terminal or command line.
@@ -63,32 +53,34 @@ the Windows start menu.
 * [Git for Windows][git4win] -- *Recommended*
 * [Windows Subsystem for Linux][ms-wsl] -- advanced option for Windows 10
 
-> ## Alternatives to Git for Windows
->
-> Other solutions are available for running Bash commands on Windows. There is
-> now a Bash shell command-line tool available for Windows 10. Additionally,
-> you can run Bash commands on a remote computer or server that already has a
-> Unix Shell, from your Windows machine. This can usually be done through a
-> Secure Shell (SSH) client. One such client available for free for Windows
-> computers is [PuTTY][putty]. See the reference below for information on
-> installing and using PuTTY, using the Windows 10 command-line tool, or
-> installing and using a Unix/Linux emulator.
->
-> For advanced users, you may choose one of the following alternatives:
->
-> * Install the [Windows Subsystem for Linux][ms-wsl]
-> * Use the Windows [PowerShell][ms-shell]
-> * Read up on [Using a Unix/Linux emulator][unix-emulator] (Cygwin) or Secure
->   Shell (SSH) client (PuTTY)
->
-> > ## Warning
-> >
-> > Commands in the Windows Subsystem for Linux (WSL), PowerShell, or Cygwin
-> > may differ slightly from those shown in the lesson or presented in the
-> > workshop. Please ask if you encounter such a mismatch -- you're
-> > probably not alone.
-> {: .challenge}
-{: .discussion}
+#### Alternatives to Git for Windows
+
+Other solutions are available for running Bash commands on Windows. There is
+now a Bash shell command-line tool available for Windows 10. Additionally,
+you can run Bash commands on a remote computer or server that already has a
+Unix Shell, from your Windows machine. This can usually be done through a
+Secure Shell (SSH) client. One such client available for free for Windows
+computers is [PuTTY][putty]. See the reference below for information on
+installing and using PuTTY, using the Windows 10 command-line tool, or
+installing and using a Unix/Linux emulator.
+
+For advanced users, you may choose one of the following alternatives:
+
+* Install the [Windows Subsystem for Linux][ms-wsl]
+* Use the Windows [PowerShell][ms-shell]
+* Read up on [Using a Unix/Linux emulator][unix-emulator] (Cygwin) or Secure
+  Shell (SSH) client (PuTTY)
+
+::::::::: caution
+
+### Warning
+
+Commands in the Windows Subsystem for Linux (WSL), PowerShell, or Cygwin
+may differ slightly from those shown in the lesson or presented in the
+workshop. Please ask if you encounter such a mismatch -- you're
+probably not alone.
+
+::::::::
 
 ::::::::::::::::::::::::
 
@@ -139,23 +131,31 @@ to connect to and use a remote computer as our own.
 
 Git for Windows comes with SSH preinstalled: you do not have to do anything.
 
-> ## GUI Support for Windows
->
-> If you know that the software you will be running on the cluster requires a
-> graphical user interface (a GUI window needs to open for the application to
-> run properly), please install [MobaXterm](https://mobaxterm.mobatek.net) Home
-> Edition.
-{: .discussion}
+:::::::::::::::: spoiler
+
+## GUI Support for Windows
+
+If you know that the software you will be running on the cluster requires a
+graphical user interface (a GUI window needs to open for the application to
+run properly), please install [MobaXterm](https://mobaxterm.mobatek.net) Home
+Edition.
+
+
+:::::::::::::::::
 
 ### SSH for macOS
 
 macOS comes with SSH pre-installed: you do not have to do anything.
 
-> ## GUI Support for macOS
->
-> If you know that the software you will be running requires a graphical user
-> interface, please install [XQuartz](https://www.xquartz.org).
-{: .discussion}
+::::::::::::::: spoiler
+
+## GUI Support for macOS
+
+If you know that the software you will be running requires a graphical user
+interface, please install [XQuartz](https://www.xquartz.org).
+
+
+:::::::::::::::
 
 ### SSH for Linux
 
