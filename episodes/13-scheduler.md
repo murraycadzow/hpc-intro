@@ -2,21 +2,28 @@
 title: "Scheduler Fundamentals"
 teaching: 45
 exercises: 30
-questions:
+---
+
+:::::::::::::::: questions
+
 - "What is a scheduler and why does a cluster need one?"
 - "How do I launch a program to run on a compute node in the cluster?"
 - "How do I capture the output of a program that is run on a node in the
   cluster?"
-objectives:
+
+:::::::::::::::::::::::::::
+
+
+
+:::::::::::::::::: objectives
+
 - "Submit a simple script to the cluster."
 - "Monitor the execution of jobs using command line tools."
 - "Inspect the output and error files of your jobs."
 - "Find the right place to put large datasets on the cluster."
-keypoints:
-- "The scheduler handles how compute resources are shared between users."
-- "A job is just a shell script."
-- "Request _slightly_ more resources than you will need."
----
+
+:::::::::::::::::::::::::::::
+
 
 ## Job Scheduler
 
@@ -64,34 +71,38 @@ manner. Our shell script will have three parts:
 * On the last line, we'll invoke the `hostname` command, which will print the
   name of the machine the script is run on.
 
-```
+```bash
 {{ site.remote.prompt }} nano example-job.sh
 ```
-{: .language-bash}
-```
+
+```output
 {{ site.remote.bash_shebang }}
 
 echo -n "This script is running on "
 hostname
 ```
-{: .output}
 
-> ## Creating Our Test Job
->
-> Run the script. Does it execute on the cluster or just our login node?
->
-> > ## Solution
-> >
-> > ```
-> > {{ site.remote.prompt }} bash example-job.sh
-> > ```
-> > {: .language-bash}
-> > ```
-> > This script is running on {{ site.remote.host }}
-> > ```
-> > {: .output}
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::: challenge
+
+## Creating Our Test Job
+
+Run the script. Does it execute on the cluster or just our login node?
+
+::::::::::: solution
+
+## Solution
+
+```bash
+{{ site.remote.prompt }} bash example-job.sh
+```
+
+```output
+This script is running on {{ site.remote.host }}
+```
+
+:::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::::::
 
 This script ran on the login node, but we want to take advantage of
 the compute nodes: we need the scheduler to queue up `example-job.sh`
@@ -103,10 +114,10 @@ This creates a _job_ which will run the _script_ when _dispatched_ to
 a compute node which the queuing system has identified as being
 available to perform the work.
 
-```
+```bash
 {{ site.remote.prompt }} {{ site.sched.submit.name }} {% if site.sched.submit.options != '' %}{{ site.sched.submit.options }} {% endif %}example-job.sh
 ```
-{: .language-bash}
+
 
 {% include {{ site.snippets }}/scheduler/basic-job-script.snip %}
 
@@ -116,22 +127,25 @@ to run, it goes into a list of jobs called the _queue_. To check on our job's
 status, we check the queue using the command
 `{{ site.sched.status }} {{ site.sched.flag.user }}`.
 
-```
+```bash
 {{ site.remote.prompt }} {{ site.sched.status }} {{ site.sched.flag.user }}
 ```
-{: .language-bash}
+
 
 {% include {{ site.snippets }}/scheduler/basic-job-status.snip %}
 
-> ## Where's the Output?
->
-> On the login node, this script printed output to the terminal -- but
-> now, when `{{ site.sched.status }}` shows the job has finished,
-> nothing was printed to the terminal.
->
-> Cluster job output is typically redirected to a file in the directory you
-> launched it from. Use `ls` to find and `cat` to read the file.
-{: .discussion}
+::::::::::::::::::::: discussion
+
+## Where's the Output?
+
+On the login node, this script printed output to the terminal -- but
+now, when `{{ site.sched.status }}` shows the job has finished,
+nothing was printed to the terminal.
+
+Cluster job output is typically redirected to a file in the directory you
+launched it from. Use `ls` to find and `cat` to read the file.
+
+::::::::::::::::::::::::::::::::
 
 ## Customising a Job
 
@@ -155,27 +169,27 @@ Let's illustrate this by example. By default, a job's name is the name of the
 script, but the `{{ site.sched.flag.name }}` option can be used to change the
 name of a job. Add an option to the script:
 
-```
+```bash
 {{ site.remote.prompt }} cat example-job.sh
 ```
-{: .language-bash}
 
-```
+
+```output
 {{ site.remote.bash_shebang }}
 {{ site.sched.comment }} {{ site.sched.flag.name }} hello-world
 
 echo -n "This script is running on "
 hostname
 ```
-{: .output}
+
 
 Submit the job and monitor its status:
 
-```
+```bash
 {{ site.remote.prompt }} {{ site.sched.submit.name }} {% if site.sched.submit.options != '' %}{{ site.sched.submit.options }} {% endif %}example-job.sh
 {{ site.remote.prompt }} {{ site.sched.status }} {{ site.sched.flag.user }}
 ```
-{: .language-bash}
+
 
 {% include {{ site.snippets }}/scheduler/job-with-name-status.snip %}
 
@@ -204,47 +218,49 @@ It's best if your requests accurately reflect your job's requirements. We'll
 talk more about how to make sure that you're using resources effectively in a
 later episode of this lesson.
 
-> ## Submitting Resource Requests
->
-> Modify our `hostname` script so that it runs for a minute, then submit a job
-> for it on the cluster.
->
-> > ## Solution
-> >
-> > ```
-> > {{ site.remote.prompt }} cat example-job.sh
-> > ```
-> > {: .language-bash}
-> >
-> > ```
-> > {{ site.remote.bash_shebang }}
-> > {{ site.sched.comment }} {{ site.sched.flag.time }} 00:01 # timeout in HH:MM
-> >
-> > echo -n "This script is running on "
-> > sleep 20 # time in seconds
-> > hostname
-> > ```
-> > {: .output}
-> >
-> > ```
-> > {{ site.remote.prompt }} {{ site.sched.submit.name }} {% if site.sched.submit.options != '' %}{{ site.sched.submit.options }} {% endif %}example-job.sh
-> > ```
-> > {: .language-bash}
-> >
-> > Why are the {{ site.sched.name }} runtime and `sleep` time not identical?
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::: challenge
+
+## Submitting Resource Requests
+
+Modify our `hostname` script so that it runs for a minute, then submit a job
+for it on the cluster.
+
+:::::::::::::::: solution
+
+## Solution
+
+```bash
+{{ site.remote.prompt }} cat example-job.sh
+```
+
+```output
+{{ site.remote.bash_shebang }}
+{{ site.sched.comment }} {{ site.sched.flag.time }} 00:01 # timeout in HH:MM
+echo -n "This script is running on "
+sleep 20 # time in seconds
+hostname
+```
+
+```bash
+{{ site.remote.prompt }} {{ site.sched.submit.name }} {% if site.sched.submit.options != '' %}{{ site.d.submit.options }} {% endif %}example-job.sh
+```
+
+Why are the {{ site.sched.name }} runtime and `sleep` time not identical?
+
+::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 Resource requests are typically binding. If you exceed them, your job will be
 killed. Let's use wall time as an example. We will request 1 minute of
 wall time, and attempt to run a job for two minutes.
 
-```
+```bash
 {{ site.remote.prompt }} cat example-job.sh
 ```
-{: .language-bash}
 
-```
+
+```output
 {{ site.remote.bash_shebang }}
 {{ site.sched.comment }} {{ site.sched.flag.name }} long_job
 {{ site.sched.comment }} {{ site.sched.flag.time }} 00:01 # timeout in HH:MM
@@ -253,16 +269,16 @@ echo "This script is running on ... "
 sleep 240 # time in seconds
 hostname
 ```
-{: .output}
+
 
 Submit the job and wait for it to finish. Once it is has finished, check the
 log file.
 
-```
+```bash
 {{ site.remote.prompt }} {{ site.sched.submit.name }} {% if site.sched.submit.options != '' %}{{ site.sched.submit.options }} {% endif %}example-job.sh
 {{ site.remote.prompt }} {{ site.sched.status }} {{ site.sched.flag.user }}
 ```
-{: .language-bash}
+
 
 {% include {{ site.snippets }}/scheduler/runtime-exceeded-job.snip %}
 
@@ -286,11 +302,11 @@ the `{{ site.sched.del }}` command. Let's submit a job and then cancel it using
 its job number (remember to change the walltime so that it runs long enough for
 you to cancel it before it is killed!).
 
-```
+```bash
 {{ site.remote.prompt }} {{ site.sched.submit.name }} {% if site.sched.submit.options != '' %}{{ site.sched.submit.options }} {% endif %}example-job.sh
 {{ site.remote.prompt }} {{ site.sched.status }} {{ site.sched.flag.user }}
 ```
-{: .language-bash}
+
 
 {% include {{ site.snippets }}/scheduler/terminate-job-begin.snip %}
 
@@ -298,12 +314,12 @@ Now cancel the job with its job number (printed in your terminal). A clean
 return of your command prompt indicates that the request to cancel the job was
 successful.
 
-```
+```bash
 {{ site.remote.prompt }} {{site.sched.del }} 38759
 # It might take a minute for the job to disappear from the queue...
 {{ site.remote.prompt }} {{ site.sched.status }} {{ site.sched.flag.user }}
 ```
-{: .language-bash}
+
 
 {% include {{ site.snippets }}/scheduler/terminate-job-cancel.snip %}
 
@@ -321,6 +337,14 @@ genome index for alignment with a tool like [HISAT2][hisat]. Fortunately, we
 can run these types of tasks as a one-off with `{{ site.sched.interactive }}`.
 
 {% include {{ site.snippets }}/scheduler/using-nodes-interactively.snip %}
+
+:::::::::::::::: keypoints
+
+- "The scheduler handles how compute resources are shared between users."
+- "A job is just a shell script."
+- "Request _slightly_ more resources than you will need."
+
+:::::::::::::::::::::::::
 
 {% include links.md %}
 
