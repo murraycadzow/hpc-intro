@@ -344,6 +344,13 @@
 </div>
 </div>
 </div>
+{{#yaml}}{{#license}}
+<p>
+Materials licensed under
+<a href="%7B%7B#site%7D%7D%7B%7Broot%7D%7D%7B%7B/site%7D%7DLICENSE.html">{{license}}</a> by the
+authors
+</p>
+<p>{{/license}}{{/yaml}}</p>
 <p>Frequently, research problems that use computing can outgrow the
 capabilities of the desktop or laptop computer where they started:</p>
 <ul><li>A statistics student wants to cross-validate a model. This involves
@@ -404,7 +411,7 @@ results.</p>
   Some Ideas
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ul><li>Checking email: your computer (possibly in your pocket) contacts a
 remote machine, authenticates, and downloads a list of new messages; it
