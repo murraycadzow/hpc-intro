@@ -44,21 +44,21 @@ character "&mdash;" (or en-dash "&ndash;", or horizontal bar `―`). For example
 instead of showing the transfer rate in real time, the following command fails
 mysteriously.
 
-```
+```bash
 {{ site.local.prompt }} rsync —progress my_precious_data.txt {{ site.remote.user }}@{{ site.remote.login }}
 rsync: link_stat "/home/{{ site.local.user }}/—progress" failed:
 No such file or directory (2)
 rsync error: some files/attrs were not transferred (see previous errors)
 (code 23) at main.c(1207) [sender=3.1.3]
 ```
-{: .language-bash}
+
 
 The correct command, different only by two characters, succeeds:
 
-```
+```bash
 {{ site.local.prompt }} rsync --progress my_precious_data.txt {{ site.remote.user }}@{{ site.remote.login }}
 ```
-{: .language-bash}
+
 
 We have done our best to wrap all commands in code blocks, which prevents this
 subtle conversion. If you encounter this error, please open an issue or pull
@@ -72,20 +72,20 @@ yet. `sftp` is an interactive way of downloading and uploading files. Let's
 connect to a cluster, using `sftp` -- you'll notice it works the same way
 as SSH:
 
-```
+```bash
 {{ site.local.prompt }} sftp yourUsername@remote.computer.address
 ```
-{: .language-bash}
+
 
 This will start what appears to be a bash shell (though our prompt says
 `sftp>`). However we only have access to a limited number of commands. We can
 see which commands are available with `help`:
 
-```
+```bash
 sftp> help
 ```
-{: .language-bash}
-```
+
+```output
 Available commands:
 bye                                Quit sftp
 cd path                            Change remote directory to 'path'
@@ -108,32 +108,32 @@ ls [-1afhlnrSt] [path]             Display remote directory listing
 
 # omitted further output for clarity
 ```
-{: .output}
+
 
 Notice the presence of multiple commands that make mention of local and remote.
 We are actually connected to two computers at once (with two working
 directories!).
 
 To show our remote working directory:
-```
+```bash
 sftp> pwd
 ```
-{: .language-bash}
-```
+
+```output
 Remote working directory: /global/home/yourUsername
 ```
-{: .output}
+
 
 To show our local working directory, we add an `l` in front of the command:
 
-```
+```bash
 sftp> lpwd
 ```
-{: .language-bash}
-```
+
+```output
 Local working directory: /home/jeff/Documents/teaching/hpc-intro
 ```
-{: .output}
+
 
 The same pattern follows for all other commands:
 
@@ -143,37 +143,37 @@ The same pattern follows for all other commands:
 
 To upload a file, we type `put some-file.txt` (tab-completion works here).
 
-```
+```bash
 sftp> put config.toml
 ```
-{: .language-bash}
-```
+
+```output
 Uploading config.toml to /global/home/yourUsername/config.toml
 config.toml                                  100%  713     2.4KB/s   00:00
 ```
-{: .output}
+
 
 To download a file we type `get some-file.txt`:
 
-```
+```bash
 sftp> get config.toml
 ```
-{: .language-bash}
-```
+
+```output
 Fetching /global/home/yourUsername/config.toml to config.toml
 /global/home/yourUsername/config.toml        100%  713     9.3KB/s   00:00
 ```
-{: .output}
+
 
 And we can recursively put/get files by just adding `-r`. Note that the
 directory needs to be present beforehand.
 
-```
+```bash
 sftp> mkdir content
 sftp> put -r content/
 ```
-{: .language-bash}
-```
+
+```output
 Uploading content/ to /global/home/yourUsername/content
 Entering content/
 content/scheduler.md              100%   11KB  21.4KB/s   00:00
@@ -184,7 +184,7 @@ content/cluster.md                100% 5542    35.0KB/s   00:00
 content/modules.md                100%   17KB 158.0KB/s   00:00
 content/resources.md              100% 1115    29.9KB/s   00:00
 ```
-{: .output}
+
 
 To quit, we type `exit` or `bye`.
 

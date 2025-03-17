@@ -8,14 +8,14 @@ programming in just two days' teaching time. Instead, this workshop is intended
 to give students a good introduction and overview of the tools available and
 how to use them effectively.
 
-::::::::::::::::::::::::::::::::::::: callout
+::::::::::::::::::::::::::::::::::::: prereq
 
-> ## Prerequisites
->
-> Command line experience is necessary for this lesson. We recommend the
-> participants to go through
-> [shell-novice](https://swcarpentry.github.io/shell-novice/), if new to the
-> command line (also known as terminal or shell).
+## Prerequisites
+
+Command line experience is necessary for this lesson. We recommend the
+participants to go through
+[shell-novice](https://swcarpentry.github.io/shell-novice/), if new to the
+command line (also known as terminal or shell).
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -32,11 +32,11 @@ By the end of this workshop, students will know how to:
 
 ::::::::::::::::::::::::::::::::::::: callout
 
-> ## Getting Started
->
-> To get started, follow the directions in the "[Setup](
-> {{ page.root }}/setup.html)" tab to download data to your computer and follow
-> any installation instructions.
+## Getting Started
+
+To get started, follow the directions in the "[Setup](
+./learners/setup.md)" tab to download data to your computer and follow
+any installation instructions.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -45,10 +45,10 @@ welcome.
 
 ::::::::::::::::::::::::::::::::::::: callout
 
-> ## For Instructors
->
-> If you are teaching this lesson in a workshop, please see the
-> [Instructor notes](guide/).
+## For Instructors
+
+If you are teaching this lesson in a workshop, please see the
+[Instructor notes](./learners/reference.md).
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
