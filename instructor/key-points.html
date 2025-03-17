@@ -244,7 +244,19 @@
 <div class="accordion accordion-flush" id="accordionFlush2">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading2">
-        <a href="introduction.html">1. Using Markdown</a>
+        <a href="10-hpc-intro.html">1. Why use a Cluster?</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush3">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading3">
+        <a href="11-connecting.html">2. Connecting to a remote HPC system</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -308,17 +320,26 @@
     <main id="main-content" class="main-content"><div class="container lesson-content">
         
         
-<section id="introduction"><h2 class="section-heading"><a href="introduction.html">Using Markdown</a></h2>
+<section id="10-hpc-intro"><h2 class="section-heading"><a href="10-hpc-intro.html">Why use a Cluster?</a></h2>
 <hr class="half-width">
 <ul>
-<li>Use <code>.md</code> files for episodes when you want static
-content</li>
-<li>Use <code>.Rmd</code> files for episodes when you need to generate
-output</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
-with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
-locally</li>
+<li>“High Performance Computing (HPC) typically involves connecting to
+very large computing systems elsewhere in the world.”</li>
+<li>“These other systems can be used to do work that would either be
+impossible or much slower on smaller systems.”</li>
+<li>“HPC resources are shared by multiple users.”</li>
+<li>“The standard method of interacting with such systems is via a
+command line interface.”</li>
+</ul></section><section id="11-connecting"><h2 class="section-heading"><a href="11-connecting.html">Connecting to a remote HPC system</a></h2>
+<hr class="half-width">
+<ul>
+<li>“An HPC system is a set of networked machines.”</li>
+<li>“HPC systems typically provide login nodes and a set of worker
+nodes.”</li>
+<li>“The resources found on independent (worker) nodes can vary in
+volume and type (amount of RAM, processor architecture, availability of
+network mounted filesystems, etc.).”</li>
+<li>“Files saved on one node are available on all nodes.”</li>
 </ul></section>
 </div>
     </main>
