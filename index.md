@@ -48,7 +48,7 @@ welcome.
 ## For Instructors
 
 If you are teaching this lesson in a workshop, please see the
-[Instructor notes](./learners/refernce.md).
+[Instructor notes](./learners/reference.md).
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
