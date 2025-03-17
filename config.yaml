@@ -68,6 +68,8 @@ contact: 'team@carpentries.org' # FIXME
 episodes:
 - 10-hpc-intro.md
 - 11-connecting.md
+- 12-cluster.md
+- 13-scheduler.md
 
 # Information for Learners
 learners:
