@@ -23,8 +23,11 @@ source("load_config.R")
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+Parallel computing is a technique used to divide big tasks into smaller ones that can be solved simultaneously. Parallelism can be accomplished in different ways and it depends on the tasks that needs doing as well as the algorithms implemented to perform these tasks. 
 
-Parallelism is one of the primary tools we have to improve the performance of computational tasks. The simplest form of parallelism is to run the same job multiple times with different inputs. A more advanced form of parallelism is MPI, which is covered in the next episode. It is possible to use both these methods at the same time, using an array job to run multiple instances of software, which itself uses MPI.
+
+
+The simplest form of parallelism is to run the same job multiple times with different inputs. A more advanced form of parallelism is MPI, which is covered in the next episode. It is possible to use both these methods at the same time, using an array job to run multiple instances of software, which itself uses MPI.
 
 cd training directory
 mkdir username
@@ -95,6 +98,6 @@ echo "Completed word analysis of $DATA_FILE"
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Stuff
+- Parallel computing allows applications to 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
