@@ -59,25 +59,188 @@ Some words are repeated in this file
 and count them (to see which words are repeated most often).
 ```
 
-Run at command line with a small test file (/nobackup/proj/comet_training/ArrayJob/test-data.txt)
+To test the script we will run it on the login node. Remember, never do this with resource intensive script. You could even run the script on your laptop or desktop if it uses Linux or Mac. This specific script will not work on Windows as not all the commands in the script are available on the Windows operating system.
+
+```bash
+bash word-freq.sh test-data.txt
+```
+
+To the results, type the output of the script to screen:
+
+```bash
+cat analyzed_test-data.txt
+```
+
+You should get something like this:
+
+```
+      1 a
+      1 and
+      1 be
+      1 can
+      1 count
+      1 in
+      1 is
+      1 it
+      1 look
+      1 most
+      1 often
+      1 our
+      1 out
+      1 script
+      1 see
+      1 small
+      1 some
+      1 them
+      1 to
+      1 trying
+      1 useful
+      1 very
+      1 we
+      1 which
+      1 will
+      2 are
+      2 file
+      2 for
+      2 this
+      3 repeated
+      3 words
+
+```
+Once we have proved that the script runs without a problem we can write a script that can be submitted to Slurm. Using `nano`, create a script called `job_single_word-freq.sh` containing the following:
+
+```bash
+#!/bin/bash
+
+#SBATCH --partition=short_free
+#SBATCH --account=comet_training
+#SBATCH --job-name=word-freq_single-test1
+#SBATCH --nodes=1
+#SBATCH --tasks=1
+#SBATCH --cpus-per-task=1
+
+echo "Starting word frequency script"
+bash word-freq.sh test-data.txt
+echo "Finished word frequency script"
+```
+
+::::instructor
+The complete script can be downloaded from: https://raw.githubusercontent.com/NewcastleRSE-Training/hpc-intro-comet/refs/heads/main/episodes/files/job_single_word-freq.sh
+::::
 
 
-Write a batch script to call the word-freq.sh as single job and run using slurm (job_single_word-freq.sh) 
-or download it from https://github.com/NewcastleRSE-Training/hpc-intro/blob/main/episodes/files/job_single_word-freq.sh
 
-Download the data using https://github.com/NewcastleRSE-Training/hpc-intro/blob/main/episodes/files/make-data.sh
 
-Update the batch sript to run on the first file of 4 text files 
-named data.1 data.2 data.3 data.4 
-downloaded from the Guteberg project (in /nobackup/proj/comet_training/ArrayJob/ - see make-data.sh to download again)
+:::::::::::::::::::::::::::::::::::::::  challenge
 
-Write a batch script to call the word-freq.sh as an array job with 4 parallel jobs to process all 4 text files (job_array_word-freq.sh)
-or download it from https://github.com/NewcastleRSE-Training/hpc-intro/blob/main/episodes/files/job_array_word-freq.sh
+How would you submit the script to Slurm for execution?
+
+
+:::::::::::::::  solution
+
+  
+```bash
+sbatch job_single_word-freq.sh
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+If you haven't done so already, download the data to be used for the script. The data consists of several books from the Gutenberg project as text files. The downloaded books should be as follows:
+
+|Filename|Book name|
+|---|---|
+|data.1|The collected works of Shakespeare|
+|data.2|Geoffrey Chaucers Cantebury Tales |
+|data.3|Moby Dick by Herman Melville|
+|data.4|Homers Odyssey|
+
+
+::::instructor
+Download the data using https://raw.githubusercontent.com/NewcastleRSE-Training/hpc-intro-comet/refs/heads/main/episodes/files/make-data.sh
+::::
+
+::::: challenge
+
+How would we change the `job_single_word-freq.sh` script to use the first of the four data files in stead of `test-data.txt`?
+
+:::: solution
+
+```bash
+#!/bin/bash
+
+#SBATCH --partition=short_free
+#SBATCH --account=comet_training
+#SBATCH --job-name=wordfreq
+#SBATCH --nodes=1
+#SBATCH --tasks=1
+#SBATCH --cpus-per-task=1
+
+echo "Starting word frequency script"
+bash word-freq.sh data.1
+echo "Finished word frequency script"
+```
+
+::::
+
+:::::
+
+
+::::: challenge
+
+Write a batch script to call the word-freq.sh as an array job with 4 parallel jobs to process all 4 text files (job_array_word-freq.sh). To do this you will need the directive `#SBATCH --array=1-4`. When using this directive, each job will be given a job number. In this case it will be job numbers one to four. While running the script for a specific job number, that number will be available in an environment variable called `${SLURM_ARRAY_TASK_ID}`.
+
+:::: solution
+
+```bash
+
+`r config$remote$bash_shebang`
+
+`r config$sched$comment` `r config$sched$flag$queue`short_free
+#SBATCH --account=comet_training
+`r config$sched$comment` `r config$sched$flag$name`makefreq
+`r config$sched$comment` `r config$sched$flag$nodes`1
+`r config$sched$comment` `r config$sched$flag$tasks`4
+#SBATCH --array=1-4
+`r config$sched$comment` `r config$sched$flag$cpu`1
+
+# Do a word frequency analysis of each of the following
+# data sets simultaneously:
+#
+# data.1 - The collected works of Shakespeare
+# data.2 - Geoffrey Chaucers Cantebury Tales 
+# data.3 - Moby Dick by Herman Melville
+# data.4 - Homers Odyssey
+#
+# We should be able to process all four data sets in the same
+# time it took to process just the first.
+
+echo "Starting word frequency script"
+bash word-freq.sh data.${SLURM_ARRAY_TASK_ID}
+echo "Finished word frequency script"
+```
+
+::::
+
+:::::
+
+
+:::: instructor
+
+You can download the script from https://raw.githubusercontent.com/NewcastleRSE-Training/hpc-intro-comet/refs/heads/main/episodes/files/job_array_word-freq.sh
+
+::::
+
+:::: instructor
+
+Not sure what the point of this script is but I'll leave it here for time being ...
 
 Check slurm.out files to see how quickly the jobs completed
 
 ```bash
 `r config$remote$bash_shebang`
+
 `r config$sched$comment` `r config$sched$flag$queue``r config$sched$partition`
 `r config$sched$comment` `r config$sched$flag$name``r config$sched$job_name1`
 `r config$sched$comment` `r config$sched$flag$nodes`1
@@ -103,6 +266,8 @@ time cat $DATA_FILE | \
 echo "====================================="
 echo "Completed word analysis of $DATA_FILE"
 ```
+
+::::
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
