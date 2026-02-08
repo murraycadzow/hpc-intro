@@ -28,7 +28,7 @@ sched:
     options: "--partition=short_free --account=comet_training"
   queue:
     debug: "smnode"
-    testing: "cpubase_bycore_b1"
+    testing: "short_free"
   status: "squeue"
   flag:
     user: "-u user"
@@ -49,7 +49,7 @@ sched:
   partition: "short_free"
   reservation: "shortqos"
   qos: "short"
-  budget: "short"
+  budget: "comet_training"
   project: ""
 
 episode_order:
