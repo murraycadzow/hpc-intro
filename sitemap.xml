@@ -13,6 +13,24 @@
     <loc>https://carpentries-incubator.github.io/hpc-intro/13-scheduler.html</loc>
   </url>
   <url>
+    <loc>https://carpentries-incubator.github.io/hpc-intro/14-environment-variables.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/hpc-intro/15-modules.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/hpc-intro/16-transferring-files.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/hpc-intro/17-parallel.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/hpc-intro/18-resources.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/hpc-intro/19-responsibility.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries-incubator.github.io/hpc-intro/404.html</loc>
   </url>
   <url>
@@ -25,22 +43,7 @@
     <loc>https://carpentries-incubator.github.io/hpc-intro/MAINTENANCE.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/hpc-intro/_includes/all_figures.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries-incubator.github.io/hpc-intro/_includes/figure.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries-incubator.github.io/hpc-intro/aio.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries-incubator.github.io/hpc-intro/citation.html</loc>
-  </url>
-  <url>
     <loc>https://carpentries-incubator.github.io/hpc-intro/files/jargon.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries-incubator.github.io/hpc-intro/images.html</loc>
   </url>
   <url>
     <loc>https://carpentries-incubator.github.io/hpc-intro/index.html</loc>
@@ -58,6 +61,24 @@
     <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/13-scheduler.html</loc>
   </url>
   <url>
+    <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/14-environment-variables.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/15-modules.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/16-transferring-files.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/17-parallel.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/18-resources.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/19-responsibility.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/404.html</loc>
   </url>
   <url>
@@ -70,45 +91,12 @@
     <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/MAINTENANCE.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/aio.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/citation.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/images.html</loc>
-  </url>
-  <url>
     <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/index.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/instructor-notes.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/introduction.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/key-points.html</loc>
   </url>
   <url>
     <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/profiles.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/reference.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries-incubator.github.io/hpc-intro/instructor-notes.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries-incubator.github.io/hpc-intro/introduction.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries-incubator.github.io/hpc-intro/key-points.html</loc>
-  </url>
-  <url>
     <loc>https://carpentries-incubator.github.io/hpc-intro/profiles.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries-incubator.github.io/hpc-intro/reference.html</loc>
   </url>
 </urlset>
