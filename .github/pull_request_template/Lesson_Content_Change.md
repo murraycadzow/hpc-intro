@@ -14,3 +14,4 @@ Fixes <!-- insert issue number here -->
 - [ ] Used key terminology is part of the glossary
 - [ ] Check episode timings
 - [ ] Rendered lesson verified
+

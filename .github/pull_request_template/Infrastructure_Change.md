@@ -11,3 +11,4 @@ Fixes <!-- insert issue number here -->
 - [ ] Lesson builds locally
 - [ ] Lesson builds as part of CI
 - [ ] Rendered lesson verified
+
